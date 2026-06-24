@@ -1,26 +1,26 @@
 /* ============================================================
-   IBCC SKINCARE — Premium one-page CC Cream experience
-   Modern luxury beauty · soft feminine · rose gold · K-beauty
+   AÉRIS — Climatiseur portable, expérience one-page premium
+   Fraîcheur moderne · tons frais · bleu glacier · brumisation
    ============================================================ */
 
 :root {
-  --cream: #faf3ee;
-  --cream-deep: #f3e7df;
-  --blush: #f6dfd7;
-  --blush-soft: #fbeae4;
-  --ink: #3a2e2a;
-  --ink-soft: #6f5f58;
-  --rose: #c08a7d;
-  --rose-deep: #a8675d;
-  --rose-gold-1: #e7b7a3;
-  --rose-gold-2: #c08a7d;
-  --rose-gold-3: #b76e79;
-  --gold: #cfa07e;
+  --cream: #f1f7fb;
+  --cream-deep: #e3eef5;
+  --blush: #d4ebf5;
+  --blush-soft: #e8f4fa;
+  --ink: #16323f;
+  --ink-soft: #557282;
+  --rose: #38a7c4;
+  --rose-deep: #1c7e9c;
+  --rose-gold-1: #7fd2e3;
+  --rose-gold-2: #38a7c4;
+  --rose-gold-3: #1c7e9c;
+  --gold: #f0a93a;
   --white: #ffffff;
-  --line: rgba(58, 46, 42, 0.10);
-  --shadow-soft: 0 22px 60px -28px rgba(120, 78, 66, 0.42);
-  --shadow-card: 0 18px 50px -30px rgba(120, 78, 66, 0.45);
-  --shadow-float: 0 30px 80px -34px rgba(120, 78, 66, 0.5);
+  --line: rgba(22, 50, 63, 0.10);
+  --shadow-soft: 0 22px 60px -28px rgba(28, 126, 156, 0.42);
+  --shadow-card: 0 18px 50px -30px rgba(28, 126, 156, 0.45);
+  --shadow-float: 0 30px 80px -34px rgba(28, 126, 156, 0.5);
   --radius-s: 14px;
   --radius-m: 22px;
   --radius-l: 34px;
@@ -325,8 +325,8 @@ h1, h2, h3, h4 {
 .ibcc-shade:hover { transform: translateY(-2px); box-shadow: var(--shadow-card); }
 .ibcc-shade.is-active { border-color: var(--rose); box-shadow: 0 0 0 3px rgba(192,138,125,.16); }
 .ibcc-shade .swatch { width: 30px; height: 30px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); }
-.ibcc-shade .swatch--light { background: linear-gradient(135deg,#f6e0cf,#eac7ad); }
-.ibcc-shade .swatch--dark { background: linear-gradient(135deg,#e4b48f,#c98e63); }
+.ibcc-shade .swatch--light { background: linear-gradient(135deg,#ffffff,#dbe7ee); }
+.ibcc-shade .swatch--dark { background: linear-gradient(135deg,#8fd3e8,#1c7e9c); }
 .ibcc-shade .meta b { display: block; font-size: 14px; color: var(--ink); }
 .ibcc-shade .meta small { font-size: 11px; color: var(--ink-soft); letter-spacing: .05em; }
 
@@ -495,6 +495,7 @@ h1, h2, h3, h4 {
 .ibcc-review__photo { border-radius: var(--radius-s); overflow: hidden; max-width: 130px; }
 .ibcc-review__photo img { aspect-ratio: 1/1; object-fit: cover; width: 100%; }
 .ibcc-review__date { font-size: 12px; color: var(--ink-soft); margin-top: auto; }
+.ibcc-review__helpful { font-size: 12px; color: var(--ink-soft); padding-top: 8px; border-top: 1px solid var(--line); }
 .ibcc-reviews__more { text-align: center; margin-top: 40px; }
 
 /* ---------- Reviews modal ---------- */
