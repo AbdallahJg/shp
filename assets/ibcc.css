@@ -618,6 +618,7 @@ body.ibcc-noscroll { overflow: hidden; }
   .ibcc-ing__grid { grid-template-columns: 1fr; }
   .ibcc-nav { display: none; }
 }
+
 @media (max-width: 860px) {
   .ibcc-hero__grid { grid-template-columns: 1fr; }
   .ibcc-hero__media { order: -1; max-width: 460px; margin: 0 auto; }
@@ -625,23 +626,163 @@ body.ibcc-noscroll { overflow: hidden; }
   .ibcc-benefits__grid { grid-template-columns: 1fr; }
   .ibcc-benefits__media { max-width: 480px; margin: 0 auto; order: -1; }
   .ibcc-ing__hero { grid-template-columns: 1fr; }
-  .ibcc-results__grid { grid-template-columns: 1fr; }
+  .ibcc-results__grid { grid-template-columns: 1fr 1fr; }
   .ibcc-how__grid { grid-template-columns: 1fr; }
   .ibcc-footer__grid { grid-template-columns: 1fr 1fr; }
   .ibcc-header__price { display: none; }
   .ibcc-stickybuy { display: flex; }
 }
+
+/* ============================================================
+   MOBILE (≤ 600px) — tightened spacing, full-width CTAs,
+   bigger tap targets, full-screen reviews sheet
+   ============================================================ */
 @media (max-width: 600px) {
-  .ibcc-wrap { padding: 0 18px; }
+  body.ibcc-body { font-size: 15.5px; }
+  .ibcc-wrap { padding: 0 16px; }
+
+  /* tighter vertical rhythm */
+  .ibcc-section { padding: clamp(44px, 12vw, 72px) 0; }
+  .ibcc-section-head { margin-bottom: clamp(28px, 8vw, 44px); }
+  .ibcc-section-head h2 { font-size: clamp(27px, 8vw, 38px); }
+  .ibcc-section-head p { font-size: 15px; }
+  .ibcc-eyebrow { letter-spacing: .26em; margin-bottom: 14px; }
+
+  /* buttons: comfortable tap targets, full width by default */
+  .ibcc-btn { padding: 15px 24px; font-size: 13.5px; letter-spacing: .1em; min-height: 50px; width: 100%; }
+  .ibcc-btn--lg { padding: 17px 26px; font-size: 14px; }
+
+  /* announcement bar */
+  .ibcc-announce { font-size: 10.5px; letter-spacing: .1em; padding: 8px 12px; }
+
+  /* header */
+  .ibcc-header__inner { height: 60px; gap: 12px; }
+  .ibcc-logo { font-size: 21px; }
+  .ibcc-logo small { display: none; }
+  .ibcc-header__cta { gap: 0; }
+  .ibcc-header__cta .ibcc-btn { padding: 11px 18px; font-size: 11.5px; min-height: 0; width: auto; }
+
+  /* hero */
+  .ibcc-hero { padding: 30px 0 44px; text-align: center; }
+  .ibcc-hero__stars { justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .ibcc-hero h1 { font-size: clamp(33px, 11vw, 46px); margin-bottom: 16px; }
+  .ibcc-hero__lead { font-size: 16px; margin: 0 auto 24px; max-width: 100%; }
+  .ibcc-hero__usp { max-width: 360px; margin: 0 auto 26px; text-align: left; }
+  .ibcc-hero__usp li { font-size: 14.5px; }
+  .ibcc-hero__actions { flex-direction: column; gap: 12px; }
+  .ibcc-hero__media { max-width: 100%; }
+  .ibcc-hero__media-main { border-radius: var(--radius-l); }
+  .ibcc-hero__pay { margin-top: 18px; }
+
+  /* float cards scaled down + kept inside the frame */
+  .ibcc-float-card { padding: 9px 12px; gap: 8px; border-radius: 14px; }
+  .ibcc-float-card b { font-size: 15px; }
+  .ibcc-float-card small { font-size: 10px; }
+  .ibcc-float-card--tl { top: 12px; left: 8px; }
+  .ibcc-float-card--br { bottom: 12px; right: 8px; }
+
+  /* trust marquee */
+  .ibcc-trust { padding: 14px 0; }
+  .ibcc-trust__track { gap: 36px; animation-duration: 24s; }
+  .ibcc-trust__track span { font-size: 16px; gap: 36px; }
+
+  /* product / buy box */
+  .ibcc-feature__grid { gap: 28px; }
+  .ibcc-gallery__thumbs { gap: 8px; }
+  .ibcc-buy h2 { font-size: clamp(26px, 8vw, 36px); }
+  .ibcc-buy__sub { font-size: 13px; margin-bottom: 18px; }
+  .ibcc-buy__price { flex-wrap: wrap; gap: 10px; }
+  .ibcc-buy__price .now { font-size: 36px; }
+  .ibcc-buy__desc { font-size: 15px; margin-bottom: 22px; }
+  .ibcc-live { padding: 12px 16px; gap: 8px 18px; }
+  .ibcc-live div { font-size: 12.5px; }
+  .ibcc-buy__actions { max-width: 100%; }
+  .ibcc-buy__reassure { gap: 12px 20px; justify-content: center; margin-top: 22px; }
+
+  /* why */
+  .ibcc-why__grid { grid-template-columns: 1fr; gap: 16px; }
+  .ibcc-why__card { padding: 28px 22px; }
+  .ibcc-why__card h3 { font-size: 21px; }
+  .ibcc-why__stats { grid-template-columns: 1fr 1fr; gap: 26px 16px; margin-top: 40px; }
+  .ibcc-why__icon { width: 56px; height: 56px; margin-bottom: 16px; }
+
+  /* results */
+  .ibcc-results__grid { grid-template-columns: 1fr; gap: 18px; }
+
+  /* benefits */
+  .ibcc-benefits__grid { gap: 30px; }
+  .ibcc-benefit { grid-template-columns: 44px 1fr; gap: 14px; }
+  .ibcc-benefit__num { width: 44px; height: 44px; font-size: 18px; border-radius: 13px; }
+  .ibcc-benefit h3 { font-size: 19px; }
+
+  /* ingredients */
+  .ibcc-ing__hero { gap: 26px; margin-bottom: 40px; }
+  .ibcc-ing__grid { gap: 14px; }
+  .ibcc-ing-card { padding: 26px 24px; }
+  .ibcc-free { gap: 8px; margin-top: 32px; }
+  .ibcc-free span { font-size: 11px; padding: 7px 13px; }
+
+  /* how to use */
+  .ibcc-how__grid { gap: 26px; }
+
+  /* reviews */
   .ibcc-reviews__grid { grid-template-columns: 1fr; }
-  .ibcc-reviews__summary { grid-template-columns: 1fr; gap: 26px; }
-  .ibcc-reviews__score { border-right: none; border-bottom: 1px solid var(--line); padding-bottom: 22px; }
-  .ibcc-why__grid { grid-template-columns: 1fr; }
-  .ibcc-why__stats { grid-template-columns: 1fr 1fr; }
-  .ibcc-shades { flex-direction: column; }
+  .ibcc-reviews__summary { grid-template-columns: 1fr; gap: 22px; padding: 26px 20px; }
+  .ibcc-reviews__score { border-right: none; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+  .ibcc-reviews__score .big { font-size: 60px; }
+  .ibcc-reviews__bar { flex-direction: column; align-items: stretch; gap: 14px; }
+  .ibcc-reviews__filters { min-height: 0; gap: 8px; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+  .ibcc-reviews__filters::-webkit-scrollbar { display: none; }
+  .ibcc-reviews__filters .ibcc-chip { flex: 0 0 auto; }
+  .ibcc-reviews__bar > .ibcc-btn { width: 100%; }
+
+  /* reviews modal → full-screen sheet */
+  .ibcc-modal__panel { width: 100%; }
+  .ibcc-modal__head { padding: 18px 18px; }
+  .ibcc-modal__head h3 { font-size: 21px; }
+  .ibcc-modal__filters { padding: 12px 18px; }
+  .ibcc-modal__body { padding: 18px 18px 32px; }
+
+  /* faq */
+  .ibcc-acc__q { font-size: 18px; padding: 20px 2px; gap: 14px; }
+  .ibcc-acc__a-inner { font-size: 14.5px; }
+
+  /* newsletter */
+  .ibcc-news__card { padding: 40px 24px; }
+  .ibcc-news__card h2 { font-size: clamp(27px, 8vw, 38px); }
   .ibcc-news__form { flex-direction: column; }
+  .ibcc-news__form button { width: 100%; }
+
+  /* footer */
+  .ibcc-footer { padding: 54px 0 110px; }
+  .ibcc-footer__grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+  .ibcc-footer__bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
+
+  /* shades stacked */
+  .ibcc-shades { flex-direction: column; }
+  .ibcc-shade { width: 100%; }
+
+  /* sticky buy bar — larger, thumb-friendly, safe-area aware */
+  .ibcc-stickybuy { padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); gap: 12px; }
+  .ibcc-stickybuy__info b { font-size: 18px; }
+  .ibcc-stickybuy .ibcc-btn { padding: 14px 18px; min-height: 0; width: auto; flex: 1; }
+
+  /* toast */
+  .ibcc-toast { left: 10px; right: 10px; bottom: 84px; max-width: none; padding: 12px 14px; }
+}
+
+/* very small phones */
+@media (max-width: 380px) {
+  .ibcc-wrap { padding: 0 13px; }
+  .ibcc-hero h1 { font-size: 30px; }
+  .ibcc-buy__price .now { font-size: 32px; }
+  .ibcc-why__stats { grid-template-columns: 1fr; }
   .ibcc-footer__grid { grid-template-columns: 1fr; }
-  .ibcc-float-card--tl { left: 6px; }
-  .ibcc-float-card--br { right: 6px; }
-  .ibcc-toast { left: 12px; right: 12px; max-width: none; }
+  .ibcc-header__cta .ibcc-btn { padding: 10px 14px; font-size: 11px; }
+}
+
+/* landscape phones: avoid oversized hero */
+@media (max-height: 480px) and (orientation: landscape) {
+  .ibcc-hero { padding: 28px 0; }
+  .ibcc-hero h1 { font-size: clamp(30px, 7vw, 44px); }
 }
