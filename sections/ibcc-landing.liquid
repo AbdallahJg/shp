@@ -48,15 +48,16 @@
           <span class="ibcc-stars">★★★★★</span>
           <span>{{ rating }} / 5 · <b id="ibcc-hero-count">{{ review_count }}</b> avis vérifiés</span>
         </div>
-        <h1 data-reveal data-reveal-delay="1">L'été, enfin&nbsp;<em>respirable.</em></h1>
+        <h1 data-reveal data-reveal-delay="1">Gardez la tête froide,&nbsp;<em>même en pleine canicule.</em></h1>
         <p class="ibcc-hero__lead" data-reveal data-reveal-delay="2">
-          Le rafraîchisseur d'air portable {{ brand }} diffuse instantanément une brise fraîche et humide
-          grâce à la brumisation ultrasonique. Fini l'air étouffant et la peau sèche — votre fraîcheur vous suit partout.
+          La canicule frappe la France — offrez-vous une fraîcheur instantanée. Le climatiseur portable {{ brand }}
+          diffuse une brise fraîche et humide par brumisation ultrasonique et rafraîchit votre espace en quelques
+          secondes, même lors des journées les plus étouffantes. Sans installation, où que vous soyez.
         </p>
         <ul class="ibcc-hero__usp" data-reveal data-reveal-delay="2">
-          <li>{% render 'ibcc-check' %} Brumisation ultrasonique : une brise fraîche &amp; humide</li>
+          <li>{% render 'ibcc-check' %} Refroidissement rapide : une brise fraîche &amp; humide instantanée</li>
           <li>{% render 'ibcc-check' %} 4 en 1 : ventilateur, humidificateur, purificateur &amp; diffuseur</li>
-          <li>{% render 'ibcc-check' %} 100% sans fil · jusqu'à 8 h d'autonomie</li>
+          <li>{% render 'ibcc-check' %} 100% sans fil · jusqu'à 8 h d'autonomie · spécial canicule</li>
         </ul>
         <div class="ibcc-hero__actions" data-reveal data-reveal-delay="3">
           <a href="{{ buy_url }}" class="ibcc-btn ibcc-btn--lg ibcc-buy-link">Je commande — {{ price }} €</a>
@@ -113,8 +114,8 @@
           <span class="ibcc-stars">★★★★★</span>
           <a href="#reviews">{{ rating }} · {{ review_count }} avis</a>
         </div>
-        <h2>Mini Climatiseur Portable</h2>
-        <p class="ibcc-buy__sub">Rafraîchisseur · Humidificateur · Purificateur</p>
+        <h2>Climatiseur Portable Haute Performance</h2>
+        <p class="ibcc-buy__sub">Fraîcheur instantanée · spécial canicule</p>
 
         <div class="ibcc-buy__price">
           <span class="now">{{ price }} €</span>
@@ -124,9 +125,10 @@
         <p class="ibcc-buy__tax">TVA incluse · Livraison offerte dès 35 €</p>
 
         <p class="ibcc-buy__desc">
-          Bien plus qu'un simple ventilateur : un rafraîchisseur d'air 4 en 1 qui diffuse une brise fraîche
-          et humide par brumisation ultrasonique. 2 vitesses, 2 niveaux de brume et un réservoir de 500 ml
-          pour 3 à 6 h de fraîcheur continue.
+          Affrontez les fortes chaleurs en toute sérénité. Ce climatiseur portable 4 en 1 (ventilateur,
+          humidificateur, purificateur et diffuseur) rafraîchit rapidement votre espace par brumisation
+          ultrasonique, même lors des journées les plus étouffantes. 2 vitesses, 2 niveaux de brume et un
+          réservoir de 500 ml pour 3 à 6 h de fraîcheur continue — ajoutez des glaçons pour un effet glacial immédiat.
         </p>
 
         <div class="ibcc-live">
@@ -165,8 +167,8 @@
     <div class="ibcc-wrap">
       <div class="ibcc-section-head" data-reveal>
         <span class="ibcc-eyebrow">Pourquoi {{ brand }}</span>
-        <h2>La vraie solution contre la chaleur</h2>
-        <p>Quatre raisons pour lesquelles notre rafraîchisseur d'air est devenu l'allié anti-canicule de milliers de foyers.</p>
+        <h2>La vraie solution contre la canicule</h2>
+        <p>Quatre raisons pour lesquelles notre climatiseur portable est devenu l'allié anti-canicule de milliers de foyers cet été.</p>
       </div>
       <div class="ibcc-why__grid">
         {%- assign why_t = 'Refroidissement Rapide|Système 4 en 1|100% Sans Fil|Silencieux & Éco' | split: '|' -%}
@@ -194,13 +196,13 @@
       <div class="ibcc-section-head" data-reveal>
         <span class="ibcc-eyebrow">En situation</span>
         <h2>Au frais, partout où vous allez</h2>
-        <p>Au bureau, dans la chambre ou en extérieur : une brise fraîche et humide à portée de main, sans installation.</p>
+        <p>Au bureau, dans la chambre ou au salon : une brise fraîche et humide à portée de main, sans installation.</p>
       </div>
       <div class="ibcc-results__grid">
         {%- assign res_img = 'ibcc-result-model.jpg|ibcc-result-light.jpg|ibcc-result-dark.jpg' | split: '|' -%}
-        {%- assign res_tag = 'Au bureau|Dans la chambre|En extérieur' | split: '|' -%}
-        {%- assign res_h = 'Fraîcheur immédiate|Des nuits apaisées|Au frais partout' | split: '|' -%}
-        {%- assign res_p = "Posez-le sur votre bureau et profitez d'une brise fraîche personnelle, sans déranger vos voisins.|Mode silencieux et brumisation douce pour s'endormir au frais sans humidité au sol.|Compact et 100% sans fil grâce à sa dragonne : la fraîcheur vous suit en terrasse ou en balade." | split: '|' -%}
+        {%- assign res_tag = 'Au bureau|Dans la chambre|Simple à remplir' | split: '|' -%}
+        {%- assign res_h = 'Fraîcheur immédiate|Des nuits apaisées|Prêt en un instant' | split: '|' -%}
+        {%- assign res_p = "Posez-le sur votre bureau et profitez d'une brise fraîche personnelle, sans déranger vos voisins.|Mode silencieux et brumisation douce pour s'endormir au frais sans humidité au sol.|Remplissez le réservoir de 500 ml par le haut et ajoutez des glaçons pour un effet air conditionné immédiat." | split: '|' -%}
         {%- for i in (0..2) -%}
           <article class="ibcc-result" data-reveal data-reveal-delay="{{ forloop.index }}">
             <div class="ibcc-result__img">
