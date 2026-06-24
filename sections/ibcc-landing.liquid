@@ -1,0 +1,509 @@
+{%- liquid
+  assign price = section.settings.price | default: '34.90'
+  assign compare = section.settings.compare_price | default: '59.00'
+  assign buy_url = section.settings.checkout_url | default: '#featured-product'
+  assign brand = section.settings.brand_name | default: 'IBCC'
+  assign rating = section.settings.rating | default: '4.9'
+  assign review_count = section.settings.review_count | default: 2847
+-%}
+
+<div class="ibcc-page"
+  data-ibcc
+  data-price="{{ price }}"
+  data-compare="{{ compare }}"
+  data-buy-url="{{ buy_url }}"
+  data-rating="{{ rating }}"
+  data-review-count="{{ review_count }}">
+
+  {%- comment %} ===== ANNOUNCEMENT BAR ===== {% endcomment -%}
+  <div class="ibcc-announce">
+    ✦&nbsp; {{ section.settings.announcement | default: 'Complimentary express shipping on every order — limited launch offer' }} &nbsp;✦
+  </div>
+
+  {%- comment %} ===== HEADER ===== {% endcomment -%}
+  <header class="ibcc-header" id="ibcc-header">
+    <div class="ibcc-wrap ibcc-header__inner">
+      <a href="#top" class="ibcc-logo">{{ brand }}<span>.</span>&nbsp;<small>Skincare</small></a>
+      <nav class="ibcc-nav">
+        <a href="#featured-product">The Cream</a>
+        <a href="#results">Results</a>
+        <a href="#ingredients">Ingredients</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="ibcc-header__cta">
+        <span class="ibcc-header__price">From <b>${{ price }}</b></span>
+        <a href="{{ buy_url }}" class="ibcc-btn ibcc-buy-link">Shop Now</a>
+      </div>
+    </div>
+  </header>
+
+  <span id="top"></span>
+
+  {%- comment %} ===== HERO ===== {% endcomment -%}
+  <section class="ibcc-hero">
+    <div class="ibcc-wrap ibcc-hero__grid">
+      <div class="ibcc-hero__copy">
+        <div class="ibcc-hero__stars" data-reveal>
+          <span class="ibcc-stars">★★★★★</span>
+          <span>{{ rating }} / 5 · <b id="ibcc-hero-count">{{ review_count }}</b> verified reviews</span>
+        </div>
+        <h1 data-reveal data-reveal-delay="1">Your skin, only&nbsp;<em>better.</em></h1>
+        <p class="ibcc-hero__lead" data-reveal data-reveal-delay="2">
+          The {{ brand }} Color-Correcting CC Cream melts into skin, adapts to your exact tone
+          and gives a soft, luminous, "your-skin-but-flawless" finish — powered by Centella Asiatica.
+        </p>
+        <ul class="ibcc-hero__usp" data-reveal data-reveal-delay="2">
+          <li>{% render 'ibcc-check' %} Self-adjusting pigments match any skin tone</li>
+          <li>{% render 'ibcc-check' %} Skincare + coverage in one weightless layer</li>
+          <li>{% render 'ibcc-check' %} SPF 25 · soothes, hydrates &amp; protects</li>
+        </ul>
+        <div class="ibcc-hero__actions" data-reveal data-reveal-delay="3">
+          <a href="{{ buy_url }}" class="ibcc-btn ibcc-btn--lg ibcc-buy-link">Shop the CC Cream — ${{ price }}</a>
+          <a href="#reviews" class="ibcc-btn ibcc-btn--ghost ibcc-btn--lg">Read Reviews</a>
+        </div>
+        <p class="ibcc-hero__pay">Pay in 4 interest-free installments · 30-day glow guarantee</p>
+      </div>
+
+      <div class="ibcc-hero__media" data-reveal data-reveal-delay="2">
+        <div class="ibcc-hero__media-main">
+          <img src="{{ 'ibcc-hero-product.jpg' | asset_url }}" alt="{{ brand }} Color Correcting CC Cream" width="900" height="900" fetchpriority="high">
+        </div>
+        <div class="ibcc-float-card ibcc-float-card--tl">
+          <span class="dot ibcc-pulse"></span>
+          <div><b id="ibcc-viewers-hero">312</b><small>viewing right now</small></div>
+        </div>
+        <div class="ibcc-float-card ibcc-float-card--br">
+          <span class="ibcc-stars" style="font-size:13px">★★★★★</span>
+          <div><b>{{ rating }}/5</b><small>loved by thousands</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment %} ===== TRUST MARQUEE ===== {% endcomment -%}
+  <div class="ibcc-trust" aria-hidden="true">
+    <div class="ibcc-trust__track">
+      <span>Centella Asiatica&nbsp;</span><span>Self-Adjusting Tone&nbsp;</span><span>SPF 25&nbsp;</span>
+      <span>Dermatologist Tested&nbsp;</span><span>Cruelty Free&nbsp;</span><span>K-Beauty Formula&nbsp;</span>
+      <span>Centella Asiatica&nbsp;</span><span>Self-Adjusting Tone&nbsp;</span><span>SPF 25&nbsp;</span>
+      <span>Dermatologist Tested&nbsp;</span><span>Cruelty Free&nbsp;</span><span>K-Beauty Formula&nbsp;</span>
+    </div>
+  </div>
+
+  {%- comment %} ===== FEATURED PRODUCT ===== {% endcomment -%}
+  <section class="ibcc-section ibcc-feature" id="featured-product">
+    <div class="ibcc-wrap ibcc-feature__grid">
+      <div class="ibcc-gallery" data-reveal>
+        <div class="ibcc-gallery__main">
+          <img id="ibcc-gallery-main" src="{{ 'ibcc-hero-product.jpg' | asset_url }}" alt="{{ brand }} CC Cream" width="800" height="700">
+        </div>
+        <div class="ibcc-gallery__thumbs">
+          {%- assign thumbs = 'ibcc-hero-product.jpg,ibcc-product-duo.jpg,ibcc-texture.jpg,ibcc-absorption.jpg' | split: ',' -%}
+          {%- for t in thumbs -%}
+            <button type="button" class="ibcc-thumb{% if forloop.first %} is-active{% endif %}" data-thumb="{{ t | asset_url }}">
+              <img src="{{ t | asset_url }}" alt="{{ brand }} CC Cream view {{ forloop.index }}" loading="lazy" width="160" height="160">
+            </button>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="ibcc-buy" id="buy" data-reveal data-reveal-delay="1">
+        <div class="ibcc-buy__rating">
+          <span class="ibcc-stars">★★★★★</span>
+          <a href="#reviews">{{ rating }} · {{ review_count }} reviews</a>
+        </div>
+        <h2>Color-Correcting CC Cream</h2>
+        <p class="ibcc-buy__sub">Even Skin Tone · Makeup &amp; Skincare</p>
+
+        <div class="ibcc-buy__price">
+          <span class="now">${{ price }}</span>
+          <span class="was">${{ compare }}</span>
+          <span class="save">Save 41%</span>
+        </div>
+        <p class="ibcc-buy__tax">Tax included · Free shipping over $35</p>
+
+        <p class="ibcc-buy__desc">
+          A multi-tasking color-correcting cream that warms to your skin and self-adjusts to your tone for
+          a natural, even, luminous "transparent" complexion — with buildable, breathable coverage.
+        </p>
+
+        <div class="ibcc-live">
+          <div><span class="eye"></span> <b id="ibcc-viewers">312</b>&nbsp;people viewing now</div>
+          <div><span class="dot"></span> <b id="ibcc-sold">183</b>&nbsp;sold in the last 24h</div>
+        </div>
+
+        <div class="ibcc-shade__label">Shade — <b id="ibcc-shade-name">#2 Light</b> <span style="color:var(--ink-soft)">(adapts on contact)</span></div>
+        <div class="ibcc-shades">
+          <button type="button" class="ibcc-shade is-active" data-shade="#2 Light">
+            <span class="swatch swatch--light"></span>
+            <span class="meta"><b>#2 Light</b><small>Fair to medium</small></span>
+          </button>
+          <button type="button" class="ibcc-shade" data-shade="#1 Dark">
+            <span class="swatch swatch--dark"></span>
+            <span class="meta"><b>#1 Dark</b><small>Medium to deep</small></span>
+          </button>
+        </div>
+
+        <div class="ibcc-buy__actions">
+          <a href="{{ buy_url }}" class="ibcc-btn ibcc-btn--block ibcc-btn--lg ibcc-buy-link">Buy Now — ${{ price }}</a>
+          <a href="{{ buy_url }}" class="ibcc-btn ibcc-btn--ghost ibcc-btn--block ibcc-buy-link">Buy 2, Get 1 Free</a>
+        </div>
+
+        <div class="ibcc-buy__reassure">
+          <div>{% render 'ibcc-check' %} 30-day money back</div>
+          <div>{% render 'ibcc-check' %} Free express shipping</div>
+          <div>{% render 'ibcc-check' %} Secure checkout</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment %} ===== WHY CHOOSE ===== {% endcomment -%}
+  <section class="ibcc-section ibcc-why">
+    <div class="ibcc-wrap">
+      <div class="ibcc-section-head" data-reveal>
+        <span class="ibcc-eyebrow">Why {{ brand }}</span>
+        <h2>Skincare that performs like makeup</h2>
+        <p>Five reasons our CC Cream has become a daily ritual for thousands of women.</p>
+      </div>
+      <div class="ibcc-why__grid">
+        {%- assign why_t = 'Adapts To You|Skin-First Formula|Weightless Wear|Visibly Even Tone' | split: '|' -%}
+        {%- assign why_d = "Smart pigments warm to your skin and adjust to your exact tone in seconds.|Centella Asiatica, glycerin and honey soothe and hydrate while you wear it.|A light, non-sticky veil that never cakes, creases or clogs pores.|Blurs redness, dark spots and dullness for a soft-focus, luminous finish." | split: '|' -%}
+        {%- for i in (0..3) -%}
+          <div class="ibcc-why__card" data-reveal data-reveal-delay="{{ forloop.index }}">
+            <div class="ibcc-why__icon">{% render 'ibcc-check' %}</div>
+            <h3>{{ why_t[i] }}</h3>
+            <p>{{ why_d[i] }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+      <div class="ibcc-why__stats">
+        <div class="ibcc-stat" data-reveal><b data-count="98">0</b><span>% saw a more even tone</span></div>
+        <div class="ibcc-stat" data-reveal data-reveal-delay="1"><b data-count="94">0</b><span>% felt skin more hydrated</span></div>
+        <div class="ibcc-stat" data-reveal data-reveal-delay="2"><b data-count="200000" data-suffix="+">0</b><span>tubes sold worldwide</span></div>
+        <div class="ibcc-stat" data-reveal data-reveal-delay="3"><b data-count="12" data-suffix="s">0</b><span>seconds to adapt</span></div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment %} ===== BEFORE & AFTER ===== {% endcomment -%}
+  <section class="ibcc-section ibcc-results" id="results">
+    <div class="ibcc-wrap">
+      <div class="ibcc-section-head" data-reveal>
+        <span class="ibcc-eyebrow">Real Results</span>
+        <h2>Before &amp; after, on real skin</h2>
+        <p>One thin layer. No filters needed. See the instant tone-correcting effect for yourself.</p>
+      </div>
+      <div class="ibcc-results__grid">
+        {%- assign res_img = 'ibcc-result-model.jpg|ibcc-result-light.jpg|ibcc-result-dark.jpg' | split: '|' -%}
+        {%- assign res_tag = 'In one application|Shade #2 Light|Shade #1 Dark' | split: '|' -%}
+        {%- assign res_h = 'Smoother, luminous skin|Blurred redness & spots|Even, radiant complexion' | split: '|' -%}
+        {%- assign res_p = "Visibly refined texture and a soft, healthy glow.|Discoloration softened for a flawless, transparent finish.|Warm, natural coverage that melts into deeper tones." | split: '|' -%}
+        {%- for i in (0..2) -%}
+          <article class="ibcc-result" data-reveal data-reveal-delay="{{ forloop.index }}">
+            <div class="ibcc-result__img">
+              <span class="ibcc-result__tag">{{ res_tag[i] }}</span>
+              <img src="{{ res_img[i] | asset_url }}" alt="Before and after using {{ brand }} CC Cream" loading="lazy" width="500" height="500">
+            </div>
+            <div class="ibcc-result__body">
+              <span class="ibcc-stars">★★★★★</span>
+              <h3>{{ res_h[i] }}</h3>
+              <p>{{ res_p[i] }}</p>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+      <p class="ibcc-results__note">*Individual results may vary. Images reflect real customer use of the CC Cream.</p>
+    </div>
+  </section>
+
+  {%- comment %} ===== BENEFITS ===== {% endcomment -%}
+  <section class="ibcc-section ibcc-benefits" id="benefits">
+    <div class="ibcc-wrap ibcc-benefits__grid">
+      <div class="ibcc-benefits__media" data-reveal>
+        <img src="{{ 'ibcc-product-collage.jpg' | asset_url }}" alt="{{ brand }} CC Cream benefits" loading="lazy" width="700" height="780">
+      </div>
+      <div data-reveal data-reveal-delay="1">
+        <span class="ibcc-eyebrow">The Benefits</span>
+        <h2 style="font-size:clamp(30px,4vw,50px)">Six things your skin will thank you for</h2>
+        <ul class="ibcc-benefit-list">
+          {%- assign ben_h = 'Self-Adjusting Coverage|Centella Calm|72-Hour Hydration|Soft-Focus Blur|SPF 25 Shield|Transparent Finish' | split: '|' -%}
+          {%- assign ben_p = "Color-shifting pigments read your undertone and warm to a seamless match.|Centella Asiatica soothes redness and reactive, sensitive skin.|A glycerin and honey complex locks in moisture all day long.|Optically blurs pores, fine lines and texture for a velvet finish.|Daily broad-spectrum defense against UV and environmental stress.|Buildable, breathable coverage that never looks like a mask." | split: '|' -%}
+          {%- for i in (0..5) -%}
+            <li class="ibcc-benefit" data-reveal data-reveal-delay="{{ forloop.index | modulo: 4 }}">
+              <span class="ibcc-benefit__num">0{{ forloop.index }}</span>
+              <div><h3>{{ ben_h[i] }}</h3><p>{{ ben_p[i] }}</p></div>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {%- comment %} ===== INGREDIENTS ===== {% endcomment -%}
+  <section class="ibcc-section ibcc-ingredients" id="ingredients">
+    <div class="ibcc-wrap">
+      <div class="ibcc-ing__hero">
+        <div class="ibcc-ing__hero-media" data-reveal>
+          <img src="{{ 'ibcc-ingredients.jpg' | asset_url }}" alt="{{ brand }} CC Cream key ingredients" loading="lazy" width="640" height="640">
+        </div>
+        <div data-reveal data-reveal-delay="1">
+          <span class="ibcc-eyebrow">Clean Actives</span>
+          <h2>A skincare essence, disguised as coverage</h2>
+          <p>We start with a base of botanical actives chosen for sensitive, modern skin — then add
+             tone-adapting pigments. The result feels like serum, finishes like your best skin day.</p>
+        </div>
+      </div>
+
+      <div class="ibcc-ing__grid">
+        {%- assign ing_pct = '5%|3%|2%' | split: '|' -%}
+        {%- assign ing_h = 'Centella Asiatica|Glycerin|Honey Extract' | split: '|' -%}
+        {%- assign ing_p = "The K-beauty hero. Soothes redness, supports the barrier and awakens natural radiance.|A humectant that draws moisture into skin for a plump, dewy, comfortable wear.|Nourishing and antioxidant-rich to leave skin soft, supple and glowing." | split: '|' -%}
+        {%- for i in (0..2) -%}
+          <article class="ibcc-ing-card" data-reveal data-reveal-delay="{{ forloop.index }}">
+            <span class="ibcc-ing-card__pct">{{ ing_pct[i] }}</span>
+            <h3>{{ ing_h[i] }}</h3>
+            <p>{{ ing_p[i] }}</p>
+          </article>
+        {%- endfor -%}
+      </div>
+
+      <div class="ibcc-free">
+        <span>Hyaluronic Boost</span><span>Paraben-Free</span><span>Cruelty-Free</span>
+        <span>Non-Comedogenic</span><span>Fragrance-Conscious</span><span>Dermatologist Tested</span>
+      </div>
+    </div>
+  </section>
+
+  {%- comment %} ===== HOW TO USE ===== {% endcomment -%}
+  <section class="ibcc-section ibcc-how">
+    <div class="ibcc-wrap">
+      <div class="ibcc-section-head" data-reveal>
+        <span class="ibcc-eyebrow">The Ritual</span>
+        <h2>Flawless in three steps</h2>
+        <p>Gently caress the face, and the skin is immediately beautiful.</p>
+      </div>
+      <div class="ibcc-how__grid">
+        {%- assign how_h = 'Prep|Apply|Adapt' | split: '|' -%}
+        {%- assign how_p = "After your basic skincare, take a small amount onto fingertips.|Press onto forehead, nose, chin and cheeks, then blend from the inside out.|Watch the formula warm and adjust to your tone for a natural, even finish." | split: '|' -%}
+        {%- for i in (0..2) -%}
+          <div class="ibcc-how__step" data-reveal data-reveal-delay="{{ forloop.index }}">
+            <div class="n">{{ forloop.index }}</div>
+            <h3>{{ how_h[i] }}</h3>
+            <p>{{ how_p[i] }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  {%- comment %} ===== REVIEWS ===== {% endcomment -%}
+  <section class="ibcc-section ibcc-reviews" id="reviews">
+    <div class="ibcc-wrap">
+      <div class="ibcc-section-head" data-reveal>
+        <span class="ibcc-eyebrow">Loved &amp; Reviewed</span>
+        <h2>{{ review_count }}+ five-star reasons to glow</h2>
+        <p>Real words from real customers who made the CC Cream part of their everyday ritual.</p>
+      </div>
+
+      <div class="ibcc-reviews__summary" data-reveal>
+        <div class="ibcc-reviews__score">
+          <div class="big">{{ rating }}</div>
+          <div class="ibcc-stars">★★★★★</div>
+          <small>Based on <span id="ibcc-total-count">{{ review_count }}</span> reviews</small>
+        </div>
+        <div class="ibcc-bars">
+          {%- assign bar_pct = '92|6|1|1|0' | split: '|' -%}
+          {%- assign stars_lbl = '5,4,3,2,1' | split: ',' -%}
+          {%- for i in (0..4) -%}
+            <div class="ibcc-bar">
+              <span>{{ stars_lbl[i] }} ★</span>
+              <span class="ibcc-bar__track"><span class="ibcc-bar__fill" data-fill="{{ bar_pct[i] }}"></span></span>
+              <span>{{ bar_pct[i] }}%</span>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="ibcc-reviews__bar" data-reveal>
+        <div class="ibcc-reviews__filters" id="ibcc-filters">
+          <button class="ibcc-chip is-active" data-filter="all">All reviews</button>
+          <button class="ibcc-chip" data-filter="photo">With photos</button>
+          <button class="ibcc-chip" data-filter="5">5 star</button>
+          <button class="ibcc-chip" data-filter="4">4 star</button>
+        </div>
+        <button class="ibcc-btn ibcc-btn--ghost" id="ibcc-open-reviews">View all {{ review_count }} reviews</button>
+      </div>
+
+      <div class="ibcc-reviews__grid" id="ibcc-reviews-grid"></div>
+
+      <div class="ibcc-reviews__more">
+        <button class="ibcc-btn ibcc-btn--lg" id="ibcc-open-reviews-2">Read all {{ review_count }} reviews</button>
+      </div>
+    </div>
+  </section>
+
+  {%- comment %} ===== REVIEWS MODAL ===== {% endcomment -%}
+  <div class="ibcc-modal" id="ibcc-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="All customer reviews">
+    <div class="ibcc-modal__overlay" data-close></div>
+    <div class="ibcc-modal__panel">
+      <div class="ibcc-modal__head">
+        <div>
+          <h3>Customer Reviews</h3>
+          <div class="ibcc-stars">★★★★★ <small>{{ rating }} · {{ review_count }} reviews</small></div>
+        </div>
+        <button class="ibcc-modal__close" data-close aria-label="Close reviews">✕</button>
+      </div>
+      <div class="ibcc-modal__filters" id="ibcc-modal-filters">
+        <button class="ibcc-chip is-active" data-filter="all">All</button>
+        <button class="ibcc-chip" data-filter="photo">With photos</button>
+        <button class="ibcc-chip" data-filter="5">5 star</button>
+        <button class="ibcc-chip" data-filter="4">4 star</button>
+        <button class="ibcc-chip" data-filter="3">3 star</button>
+      </div>
+      <div class="ibcc-modal__body" id="ibcc-modal-body">
+        <div class="ibcc-modal__sentinel" id="ibcc-modal-sentinel"></div>
+        <div class="ibcc-modal__loading" id="ibcc-modal-loading">Loading more reviews…</div>
+      </div>
+    </div>
+  </div>
+
+  {%- comment %} ===== FAQ ===== {% endcomment -%}
+  <section class="ibcc-section ibcc-faq" id="faq">
+    <div class="ibcc-wrap">
+      <div class="ibcc-section-head" data-reveal>
+        <span class="ibcc-eyebrow">Good To Know</span>
+        <h2>Questions, answered</h2>
+      </div>
+      <div class="ibcc-faq__wrap">
+        {%- assign faq_q = "How does one cream match every skin tone?|Is it makeup or skincare?|Which shade should I choose?|Will it work on sensitive or acne-prone skin?|How long does one tube last?|What is your guarantee?" | split: '|' -%}
+        {%- assign faq_a = "Encapsulated pigments release and warm on contact with your skin, self-adjusting to your undertone for a natural, custom match.|Both. It delivers buildable, light coverage while Centella Asiatica, glycerin and honey care for your skin underneath.|#2 Light suits fair-to-medium skin; #1 Dark suits medium-to-deep. Both self-adjust, so either will blend closely to your tone.|Yes. It's non-comedogenic, dermatologist tested and formulated with soothing Centella for reactive skin. Patch test if you're highly sensitive.|With daily use, one 45ml tube typically lasts 2–3 months.|A 30-day glow guarantee. If you don't love your skin, reach out for a full refund." | split: '|' -%}
+        {%- for i in (0..5) -%}
+          <div class="ibcc-acc" data-reveal>
+            <button type="button" class="ibcc-acc__q">{{ faq_q[i] }} <span class="ic">+</span></button>
+            <div class="ibcc-acc__a"><div class="ibcc-acc__a-inner">{{ faq_a[i] }}</div></div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  {%- comment %} ===== NEWSLETTER ===== {% endcomment -%}
+  <section class="ibcc-section ibcc-news">
+    <div class="ibcc-wrap">
+      <div class="ibcc-news__card" data-reveal>
+        <span class="ibcc-eyebrow">Join The Glow List</span>
+        <h2>Get 10% off your first ritual</h2>
+        <p>Be first to hear about restocks, beauty edits and members-only offers. No spam, just glow.</p>
+        <form class="ibcc-news__form" id="ibcc-news-form">
+          <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
+          <button type="submit" class="ibcc-btn">Unlock 10%</button>
+        </form>
+        <div class="ibcc-news__msg" id="ibcc-news-msg" role="status"></div>
+        <p class="ibcc-news__fine">By subscribing you agree to receive marketing emails from {{ brand }}.</p>
+      </div>
+    </div>
+  </section>
+
+  {%- comment %} ===== FOOTER ===== {% endcomment -%}
+  <footer class="ibcc-footer">
+    <div class="ibcc-wrap">
+      <div class="ibcc-footer__grid">
+        <div>
+          <div class="ibcc-footer__logo">{{ brand }}<span>.</span></div>
+          <p>Skincare-first beauty, made to enhance the skin you're already in. One hero cream, endless confidence.</p>
+          <div class="ibcc-footer__social">
+            <a href="#" aria-label="Instagram">{% render 'ibcc-ig' %}</a>
+            <a href="#" aria-label="TikTok">{% render 'ibcc-tt' %}</a>
+            <a href="#" aria-label="Facebook">{% render 'ibcc-fb' %}</a>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#featured-product">The CC Cream</a></li>
+            <li><a href="#ingredients">Ingredients</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns &amp; 30-day Guarantee</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>The Promise</h4>
+          <ul>
+            <li>Cruelty-Free</li>
+            <li>Dermatologist Tested</li>
+            <li>Non-Comedogenic</li>
+            <li>Free Express Shipping</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ibcc-footer__bottom">
+        <span>© {{ 'now' | date: '%Y' }} {{ brand }} Skincare. All rights reserved.</span>
+        <div class="pays"><span>VISA</span><span>MASTERCARD</span><span>AMEX</span><span>PAYPAL</span><span>SHOP PAY</span></div>
+      </div>
+    </div>
+  </footer>
+
+  {%- comment %} ===== STICKY MOBILE BUY BAR ===== {% endcomment -%}
+  <div class="ibcc-stickybuy" id="ibcc-stickybuy">
+    <div class="ibcc-stickybuy__info">
+      <b>${{ price }}</b>
+      <small><span class="ibcc-stars" style="font-size:11px">★★★★★</span> {{ rating }}</small>
+    </div>
+    <a href="{{ buy_url }}" class="ibcc-btn ibcc-buy-link">Buy Now</a>
+  </div>
+
+  {%- comment %} ===== SOCIAL PROOF TOAST ===== {% endcomment -%}
+  <div class="ibcc-toast" id="ibcc-toast" role="status" aria-live="polite">
+    <img id="ibcc-toast-img" src="{{ 'ibcc-hero-product.jpg' | asset_url }}" alt="">
+    <div>
+      <b id="ibcc-toast-name">Someone</b>
+      <small id="ibcc-toast-text">just purchased the CC Cream</small>
+    </div>
+    <span class="check">✓</span>
+  </div>
+</div>
+
+{%- comment %} ===== DATA FOR JS ===== {% endcomment -%}
+<script>
+  window.IBCC = {
+    price: {{ price | json }},
+    compare: {{ compare | json }},
+    rating: {{ rating | json }},
+    reviewCount: {{ review_count | json }},
+    reviewPhotos: [
+      {%- for i in (1..18) -%}
+        {{ 'ibcc-review-' | append: i | append: '.jpg' | asset_url | json }}{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ],
+    productImg: {{ 'ibcc-hero-product.jpg' | asset_url | json }}
+  };
+</script>
+
+{% schema %}
+{
+  "name": "IBCC Landing",
+  "settings": [
+    { "type": "header", "content": "Brand & Pricing" },
+    { "type": "text", "id": "brand_name", "label": "Brand name", "default": "IBCC" },
+    { "type": "text", "id": "price", "label": "Sale price (number only)", "default": "34.90" },
+    { "type": "text", "id": "compare_price", "label": "Compare-at price", "default": "59.00" },
+    { "type": "text", "id": "rating", "label": "Average rating", "default": "4.9" },
+    { "type": "number", "id": "review_count", "label": "Review count", "default": 2847 },
+    { "type": "header", "content": "Calls To Action" },
+    { "type": "url", "id": "checkout_url", "label": "Purchase / checkout URL", "info": "Where every Buy button sends customers (e.g. your checkout permalink)." },
+    { "type": "text", "id": "announcement", "label": "Announcement bar text", "default": "Complimentary express shipping on every order — limited launch offer" }
+  ],
+  "presets": [{ "name": "IBCC Landing" }]
+}
+{% endschema %}
