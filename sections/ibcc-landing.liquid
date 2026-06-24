@@ -1,7 +1,7 @@
 {%- liquid
   assign price = section.settings.price | default: '34,90'
   assign compare = section.settings.compare_price | default: '59,00'
-  assign buy_url = section.settings.checkout_url | default: '#featured-product'
+  assign buy_url = '/cart/63826733039993:1'
   assign brand = section.settings.brand_name | default: 'AÉRIS'
   assign rating = section.settings.rating | default: '4,8'
   assign review_count = section.settings.review_count | default: 2847
@@ -404,11 +404,6 @@
         <div>
           <div class="ibcc-footer__logo">{{ brand }}<span>.</span></div>
           <p>La fraîcheur portable, pensée pour braver la chaleur où que vous soyez. Un appareil malin, un confort sans compromis.</p>
-          <div class="ibcc-footer__social">
-            <a href="#" aria-label="Instagram">{% render 'ibcc-ig' %}</a>
-            <a href="#" aria-label="TikTok">{% render 'ibcc-tt' %}</a>
-            <a href="#" aria-label="Facebook">{% render 'ibcc-fb' %}</a>
-          </div>
         </div>
         <div>
           <h4>Explorer</h4>
@@ -491,8 +486,6 @@
     { "type": "text", "id": "compare_price", "label": "Prix barré", "default": "59,00" },
     { "type": "text", "id": "rating", "label": "Note moyenne", "default": "4,8" },
     { "type": "number", "id": "review_count", "label": "Nombre d'avis", "default": 2847 },
-    { "type": "header", "content": "Appels à l'action" },
-    { "type": "url", "id": "checkout_url", "label": "URL d'achat / commande", "info": "Destination de tous les boutons d'achat (ex. votre lien de commande)." },
     { "type": "text", "id": "announcement", "label": "Texte de la barre d'annonce", "default": "Livraison express offerte sur toute commande — offre de lancement limitée" }
   ],
   "presets": [{ "name": "AERIS Landing" }]

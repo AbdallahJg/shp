@@ -579,9 +579,6 @@ body.ibcc-noscroll { overflow: hidden; }
 .ibcc-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 11px; }
 .ibcc-footer ul a { font-size: 14px; color: rgba(255,255,255,.7); transition: color .3s ease; }
 .ibcc-footer ul a:hover { color: var(--rose-gold-1); }
-.ibcc-footer__social { display: flex; gap: 12px; margin-top: 18px; }
-.ibcc-footer__social a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.2); display: grid; place-items: center; color: #fff; transition: all .3s ease; }
-.ibcc-footer__social a:hover { background: var(--rose-gold-2); border-color: var(--rose-gold-2); transform: translateY(-3px); }
 .ibcc-footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; padding-top: 26px; font-size: 12.5px; }
 .ibcc-footer__bottom .pays { display: flex; gap: 8px; align-items: center; }
 .ibcc-footer__bottom .pays span { background: rgba(255,255,255,.1); border-radius: 6px; padding: 5px 9px; font-size: 11px; letter-spacing: .05em; }
