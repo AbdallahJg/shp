@@ -70,7 +70,6 @@
     "Bureau à domicile","Petit espace","Studio","Atelier","Caravane","Balcon","Salle de séjour"
   ];
 
-  var SHADES = ["Blanc Givré","Bleu Glacier"];
   var AVATAR_COLORS = ["#38a7c4","#1c7e9c","#5bbcd6","#2e8fb0","#7fd2e3","#1f6f8c","#46a7c0","#3892ad","#69c4dc","#2a7d99"];
 
   /* avis complets (5 étoiles) — inspirés d'avis clients réels */
@@ -297,7 +296,6 @@
         body: body,
         date: randomDate(),
         skin: pick(SKIN),
-        shade: pick(SHADES),
         photo: hasPhoto ? CFG.reviewPhotos[Math.floor(rng() * CFG.reviewPhotos.length)] : null,
         helpful: Math.floor(rng() * 90)
       });
@@ -322,7 +320,7 @@
       '<div class="ibcc-review__title">' + rv.title + '</div>' +
       '<p class="ibcc-review__text">' + rv.body + '</p>' +
       photo +
-      '<div class="ibcc-review__date">Coloris ' + rv.shade + ' · ' + rv.date + '</div>' +
+      '<div class="ibcc-review__date">' + rv.date + '</div>' +
       helpful +
     '</article>';
   }
@@ -416,16 +414,6 @@
         document.querySelectorAll(".ibcc-thumb").forEach(function (b) { b.classList.remove("is-active"); });
         btn.classList.add("is-active");
         if (galleryMain) galleryMain.src = btn.getAttribute("data-thumb");
-      });
-    });
-
-    /* ----- color selector ----- */
-    var shadeName = document.getElementById("ibcc-shade-name");
-    document.querySelectorAll(".ibcc-shade").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        document.querySelectorAll(".ibcc-shade").forEach(function (b) { b.classList.remove("is-active"); });
-        btn.classList.add("is-active");
-        if (shadeName) shadeName.textContent = btn.getAttribute("data-shade");
       });
     });
 
@@ -563,9 +551,6 @@
     var CITIES = ["Paris","Lyon","Marseille","Toulouse","Bordeaux","Lille","Nantes","Nice","Strasbourg","Montpellier","Rennes","Grenoble","Toulon","Dijon","Angers","Le Havre","Reims","Aix-en-Provence","Clermont-Ferrand","Bruxelles","Genève","Lausanne","Montréal","Annecy"];
     var actions = [
       "vient de commander le climatiseur",
-      "a profité de l'offre 2 achetés = 1 offert",
-      "a commandé 2 climatiseurs (Blanc Givré)",
-      "a commandé 2 climatiseurs (Bleu Glacier)",
       "vient de finaliser sa commande",
       "a recommandé un deuxième exemplaire",
       "en a ajouté un pour sa sœur",
